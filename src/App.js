@@ -12,6 +12,8 @@ import ConnectWallet from './components/ConnectWallet';
 import { PageOne } from './pages/PageOne';
 import PageTwo from './pages/PageTwo';
 
+import { useWeb3React } from '@web3-react/core'
+
 
 import {
   BrowserRouter as Router,
@@ -26,25 +28,24 @@ import TravelSummaryPage from './pages/TravelSummaryPage';
 
 function App() {
 
-  const [location, setLocation] = useState('')
-  const [value, onChange] = useState([new Date(), new Date()]);
-  // const [authorizedTraveler, handleSubmit] = useState('')
-  const [contactInfo, setContactInfo] = useState('');
+  const [location, setLocation] = useState('') //location selection
+  const [value, onChange] = useState([new Date(), new Date()]); //date picker 
+  const [contactInfo, setContactInfo] = useState(''); //authorized traveler
+  const [hotel, setHotel] = useState('') //hotel selection
+  const { active, chainId, account } = useWeb3React(); //info about Connected Wallet
 
-  const handleChange = (event) => {
-    setContactInfo(event.target.value);
+  console.log("I can acc: ",contactInfo)
+  const handleChange = (event) => { //for auth traveler form 
+    setContactInfo([account, event.target.value]); //add user and authorized friend to 
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { //for auth traveler form 
     // prevents the submit button from refreshing the page
     event.preventDefault();
     console.log(contactInfo);
   };
 
 
-  const [hotel, setHotel] = useState('')
-  console.log("location", location)
-  console.log("vv: ", value)
 
  
   const choseParis = () => {

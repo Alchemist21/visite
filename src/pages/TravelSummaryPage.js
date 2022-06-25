@@ -10,7 +10,7 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo}) => {
             {location}
             <div>{value.join(' - ')}</div>
             {hotel}
-            Authorized Travelers: {contactInfo}
+            Authorized Travelers: {contactInfo.join(', ')}
         </div>
 
         <Button>Pay</Button>
