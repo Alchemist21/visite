@@ -32,22 +32,9 @@ export default function HomePage({choseParis,choseNYC,onChange,value,handleChang
             </label>
             <input type="submit" value="Save" />
         </form>
-
-    
-{/* 
-        <form onSubmit={this.handleSubmit}>
-            <label>
-            Authorized Travel
-            <input type="text" onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Save"/>
-        </form> */}
-        
         <Link to={{ pathname: "/confirmSelection"}}>
             <Button>Confirm Selection</Button>
         </Link> 
-        {/* <ConfirmSelectionPage location={this.state.location} date={this.state.date} authorizedTraveler={this.state.authorizedTraveler}></ConfirmSelectionPage> */}
-
     </div>
   )
 }

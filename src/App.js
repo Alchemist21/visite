@@ -30,8 +30,10 @@ function App() {
 
   const [location, setLocation] = useState('') //location selection
   const [value, onChange] = useState([new Date(), new Date()]); //date picker 
-  const [contactInfo, setContactInfo] = useState(''); //authorized traveler
+  const [contactInfo, setContactInfo] = useState([]); //authorized traveler
   const [hotel, setHotel] = useState('') //hotel selection
+  const [paymentStatus, setPaymentStatus] = useState(0);
+
   const { active, chainId, account } = useWeb3React(); //info about Connected Wallet
 
   console.log("I can acc: ",contactInfo)
@@ -46,7 +48,9 @@ function App() {
   };
 
 
-
+  const paymentInfo = () => {
+    
+  }
  
   const choseParis = () => {
     setLocation('Paris')
@@ -86,7 +90,7 @@ function App() {
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit}/>}/>
                 <Route path='/connectWallet' element={<ConnectWallet/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
-                <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo}/>}/>
+                <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus}/>}/>
             </Routes>
         </div>
         </>
