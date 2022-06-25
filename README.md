@@ -1,8 +1,6 @@
-# Getting Started with Create React App
+# VISITE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+We enable safe, secure and private payment for group Travel
 
 In the project directory, you can run:
 
