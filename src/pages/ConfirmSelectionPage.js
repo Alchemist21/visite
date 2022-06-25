@@ -3,6 +3,8 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import hotelImg from '../images/hotel.png'
 import Button from 'react-bootstrap/Button'
+import {BrowserRouter as Router, Link} from 'react-router-dom';
+
 
 const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilton,hotel}) => {
 
@@ -32,8 +34,9 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
             <img  width="150" height="auto" src={hotelImg}/>
             <Button onClick={() => choseHilton()}> Select</Button>            </div>
 
-        <Button> Confirm</Button>
-
+        <Link to={{ pathname: "/travelSummary"}}>
+            <Button>Confirm </Button>
+        </Link> 
         {hotel}
 
 

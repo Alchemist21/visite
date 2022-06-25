@@ -13,7 +13,7 @@ import ConfirmSelectionPage from './ConfirmSelectionPage';
 import { touchRippleClasses } from '@mui/material';
 
 
-export default function HomePage({choseParis,choseNYC,onChange,value}) {
+export default function HomePage({choseParis,choseNYC,onChange,value,handleChange, handleSubmit}) {
     console.log("choseParis",choseParis)
   return (
     <div>
@@ -24,6 +24,14 @@ export default function HomePage({choseParis,choseNYC,onChange,value}) {
         
         <button><img  width="350" height="auto" src={nyImg} alt="my image"  onClick={() => choseNYC()}/></button>
         <DateRangePicker onChange={onChange} value={value} />
+
+        <form onSubmit={handleSubmit}>
+            <label>
+                Authorized Travelers
+            <input type="text" name="name" onChange={handleChange} />
+            </label>
+            <input type="submit" value="Save" />
+        </form>
 
     
 {/* 

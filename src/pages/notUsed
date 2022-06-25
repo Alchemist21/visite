@@ -1,0 +1,89 @@
+import React from 'react'
+
+import {BrowserRouter as Router, Link} from 'react-router-dom';
+
+import parisImg from '../images/Paris.jpeg'
+import nyImg from '../images/NewYork.jpeg'
+import BasicDatePickerOne from '../components/BasicDatePickerOne';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';//date time picker
+
+import Button from 'react-bootstrap/Button'
+import ConfirmSelectionPage from './ConfirmSelectionPage';
+import { touchRippleClasses } from '@mui/material';
+
+class HomePage extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.state={
+            location:"",
+            date:[new Date(), new Date()],
+            authorizedTraveler:"null"
+        }
+       
+        this.choseParis = this.choseParis.bind(this) 
+        this.choseNYC = this.choseNYC.bind(this) 
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
+    }
+
+    // choseParis() {
+    //     this.setState({location:"Paris"})
+    //     console.log("CLICKED par");
+    // }
+    // choseNYC() {
+    //     this.setState({location:"New York"})
+    //     console.log("CLICKED ny");
+    // }
+
+    // handleChange(event) {
+    //     this.setState({authorizedTraveler: event.target.value});
+    //   }
+    
+    // handleSubmit(event) {
+    //     console.log('A name was submitted: ' + this.state.authorizedTraveler);
+    //     event.preventDefault();
+    //   }
+
+
+
+    render(){
+        console.log("here",this.props);
+        return(
+            <div>
+                <br/>
+                <p>Ensures secure, private, and shared payment for group travel</p>
+                <p>Select Travel Destination</p>
+                <button><img  width="350" height="auto" src={parisImg} alt="my image" onClick={this.choseParis} /></button>
+                <button><img  width="350" height="auto" src={nyImg} alt="my image" onClick={this.choseNYC} /></button>
+                
+                <BasicDatePickerOne/>
+
+                
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                    Authorized Travel
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Save"/>
+                </form>
+                
+                <Link to={{ pathname: "/confirmSelection", state: {location: "Paris"} }}>
+                    <Button>Confirm Selection</Button>
+                </Link>
+                {/* <ConfirmSelectionPage location={this.state.location} date={this.state.date} authorizedTraveler={this.state.authorizedTraveler}></ConfirmSelectionPage> */}
+
+
+
+
+
+            </div>
+        )
+    }
+}
+
+export default HomePage;

@@ -21,12 +21,26 @@ import {
   Link
 } from "react-router-dom";
 import ConfirmSelectionPage from './pages/ConfirmSelectionPage';
+import TravelSummaryPage from './pages/TravelSummaryPage';
+
 
 function App() {
 
   const [location, setLocation] = useState('')
   const [value, onChange] = useState([new Date(), new Date()]);
   // const [authorizedTraveler, handleSubmit] = useState('')
+  const [contactInfo, setContactInfo] = useState('');
+
+  const handleChange = (event) => {
+    setContactInfo(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    // prevents the submit button from refreshing the page
+    event.preventDefault();
+    console.log(contactInfo);
+  };
+
 
   const [hotel, setHotel] = useState('')
   console.log("location", location)
@@ -68,10 +82,10 @@ function App() {
         </Navbar>
         <div>
             <Routes>
-                <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} />}/>
+                <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit}/>}/>
                 <Route path='/connectWallet' element={<ConnectWallet/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
-                <Route path='/travelSummary' element={<Trav location={location} value={value} hotel={hotel}/>}/>
+                <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo}/>}/>
             </Routes>
         </div>
         </>
