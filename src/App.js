@@ -71,7 +71,7 @@ function App() {
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} />}/>
                 <Route path='/connectWallet' element={<ConnectWallet/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
-                <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
+                <Route path='/travelSummary' element={<Trav location={location} value={value} hotel={hotel}/>}/>
             </Routes>
         </div>
         </>
