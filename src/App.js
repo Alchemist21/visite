@@ -48,7 +48,22 @@ function App() {
   };
 
 
-  const paymentInfo = () => {
+  const paymentInfo = (num) => {
+    //payment status = 0 -> nobody paid 
+    if(num == 0){
+      setPaymentStatus(0);
+    }
+
+
+    //payment status = 1 -> one paid 
+    if(num == 1){
+      setPaymentStatus(1);
+    }
+    //payment status = 2 -> both paid 
+    if(num ==2){
+      setPaymentStatus(2);
+    }
+    
     
   }
  

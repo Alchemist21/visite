@@ -1,8 +1,14 @@
+import { render } from '@testing-library/react';
 import React from 'react'
 
 import Button from 'react-bootstrap/Button'
+import NFTGallery from '../components/NFTGallery';
+import PayHotel from '../components/PayHotel';
+import WaitPayment from '../components/WaitPayment';
 
-const TravelSummaryPage = ({location,value,hotel,contactInfo}) => {
+
+const TravelSummaryPage = ({location,value,hotel,contactInfo, paymentStatus}) => {
+
   return (
     <div>Travel Summary
 
@@ -13,7 +19,22 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo}) => {
             Authorized Travelers: {contactInfo.join(' , ')}
         </div>
 
-        <Button>Pay</Button>
+        {(() => {
+            if (paymentStatus === 0) {
+              return (
+                <PayHotel></PayHotel>
+              )
+            } else if (paymentStatus === 1) {
+              return (
+                <WaitPayment></WaitPayment>
+              )
+            } else if (paymentStatus ===2){
+              return (
+                <NFTGallery></NFTGallery>
+              )
+            }
+        })()}
+        {/* <Button >Pay</Button>  this button is for paying*/}
 
 
     </div>
