@@ -2,7 +2,9 @@ import React from 'react'
 
 const PayHotel = () => {
   return (
-    <div>PayHotel</div>
+    <div>PayHotel
+        <p>Price: $250</p>
+    </div>
   )
 }
 

@@ -12,6 +12,8 @@ import ConnectWallet from './components/ConnectWallet';
 import { PageOne } from './pages/PageOne';
 import PageTwo from './pages/PageTwo';
 
+import Metamask from './components/MetaMask';
+
 import { useWeb3React } from '@web3-react/core'
 
 
@@ -103,7 +105,7 @@ function App() {
         <div>
             <Routes>
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit}/>}/>
-                <Route path='/connectWallet' element={<ConnectWallet/>}/>
+                <Route path='/connectWallet' element={<Metamask/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
                 <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus}/>}/>
             </Routes>

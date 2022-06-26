@@ -23,16 +23,23 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
             Marriot
             <img  width="150" height="auto" src={hotelImg}/>
             <Button onClick={() => choseMarriot()}> Select</Button>
+            <p>$250</p>
+
         </div>
 
         <div>
             Hyatt
             <img  width="150" height="auto" src={hotelImg}/>
-            <Button onClick={() => choseHyatt()}> Select</Button>        </div>
+            <Button onClick={() => choseHyatt()}> Select</Button>       
+            <p>$250</p>
+        </div>
         <div>
             Hilton 
             <img  width="150" height="auto" src={hotelImg}/>
-            <Button onClick={() => choseHilton()}> Select</Button>            </div>
+            <Button onClick={() => choseHilton()}> Select</Button>      
+            <p>$250</p>
+     
+        </div>
 
         <Link to={{ pathname: "/travelSummary"}}>
             <Button>Confirm </Button>
