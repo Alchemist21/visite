@@ -157,7 +157,7 @@ function App() {
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit} contactInfo={contactInfo}/>}/>
                 <Route path='/connectWallet' element={<Metamask/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel} provider={provider} signer={signer} contactInfo={contactInfo}/>}/>
-                <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus}/>}/>
+                <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus} provider={provider} signer={signer}/>}/>
             </Routes>
         </div>
         </>

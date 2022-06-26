@@ -1,3 +1,4 @@
-export const hotelRegistryAddress = "0xCdF1147293f0177084543cFd9dA05e042f278077"
-export const NFTIssuerAddress = "0xf6011ECe56fd6fCb24035686282C59b69aAf7cAc"
-export const travelEscrowFactoryAddress = "0x25B641466AF16EF1dec393A4A7A2B9EB90e3C535"
+export const hotelRegistryAddress = "0x1befE3ACD3DEA0Cf5c00F3b0050A6336a4b74910"
+export const NFTIssuerAddress = "0xcE042E1b2bC593F3dC7374c4878deAeeE2B32b94"
+export const travelEscrowFactoryAddress = "0xfd576c4C00763Bc098F9d8490dd6bf413e8329e9"
+
