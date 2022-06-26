@@ -14,16 +14,22 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
 
 
   return (
-    <div>
-        <p>These Hotels are available based on your preferred date</p>
+    <div class= "container text-align">
+        <br />    
+        <h3>These Hotels are available based on your preferred date</h3>
+        <br />
+        <br />
         <div>{location}</div>
+        <br />
+        <br />
         <div>{value.join(' - ')}</div>
-
+        <br />
+        <br />
         <div>
             Marriot
             <img  width="150" height="auto" src={hotelImg}/>
             <Button onClick={() => choseMarriot()}> Select</Button>
-            <p>$250</p>
+            <p>$2500</p>
 
         </div>
 
@@ -31,13 +37,13 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
             Hyatt
             <img  width="150" height="auto" src={hotelImg}/>
             <Button onClick={() => choseHyatt()}> Select</Button>       
-            <p>$250</p>
+            <p>$2500</p>
         </div>
         <div>
             Hilton 
             <img  width="150" height="auto" src={hotelImg}/>
             <Button onClick={() => choseHilton()}> Select</Button>      
-            <p>$250</p>
+            <p>$2500</p>
      
         </div>
 
