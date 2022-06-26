@@ -9,3 +9,26 @@
     font-size: 20px;
     text-align: center;
  }
+
+
+
+ .paris-btn{
+    margin-right: 100px;
+ }
+ .ny-btn{
+    margin-left: 10px;
+ }
+
+ .div-o {
+	display: flex;
+  	align-items: center; /* aligns all the items vertically centered */
+  	justify-content: space-around; /* aligns all the items horizontally centered */
+}
+
+.div-c{
+    
+    display: flex;
+    align-items: center; /* aligns all the items vertically centered */
+    justify-content: space-between;
+
+}

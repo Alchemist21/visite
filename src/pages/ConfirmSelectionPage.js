@@ -4,11 +4,17 @@ import { useLocation } from 'react-router-dom'
 import hotelImg from '../images/hotel.png'
 import Button from 'react-bootstrap/Button'
 import {BrowserRouter as Router, Link} from 'react-router-dom';
-
+import style from '../style.css'
 import {travelEscrowFactoryAddress} from '../addresses';
 import {abiTravelEscrowFactory} from '../abi'
 
 import { ethers } from "ethers";
+import { fontSize } from '@mui/system';
+import hotelO from '../images/hotelO.png'
+import hotelT from '../images/hotelT.png'
+import hotelTr from '../images/hotelTr.png'
+
+
 
 
 const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilton,hotel,provider,signer,contactInfo}) => {
@@ -37,45 +43,82 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
     }
 
 
+
   return (
-    <div class= "container text-align">
-        <br />    
-        <h3>These Hotels are available based on your preferred date</h3>
+    <div >
         <br />
-        <br />
-        <div>{location}</div>
-        <br />
-        <br />
-        <div>{value.join(' - ')}</div>
-        <br />
-        <br />
-        <div>
-            Marriot
-            <img  width="150" height="auto" src={hotelImg}/>
-            <Button onClick={() => choseMarriot()}> Select</Button>
-            <p>$2500</p>
 
+
+        <h1 style={{textAlign:'center '} }>Book Your Stay In {location}</h1>
+        <br />
+        <br />
+        <h3 style={{textAlign:'center '} }>{"Dates Selected: " + (value[0].getMonth() +1 )+'/'+value[0].getDate() +'/'+ value[0].getFullYear() + ' - ' + (value[1].getMonth() +1) +'/' +value[1].getDate() +'/'+ value[1].getFullYear() }</h3>
+        <br />
+        <br />
+        <div className='div-o'>
+        {/* <tr> */}
+            <div>
+                <tr>
+                <p style={{fontSize:"20px"}}>Marriot - $250</p>
+                </tr>
+                <br/>
+                <tr>
+                <img  width="150" height="auto" src={hotelO}/>
+                </tr>
+                <br/>
+
+                <tr>
+                <Button  size="lg" variant="secondary" onClick={() => choseMarriot()}> Select</Button>
+                </tr>
+
+            </div>
+
+            <div>
+                <tr>
+                <p style={{fontSize:"20px"}}>Hyatt - $270</p>
+                </tr>
+                <br/>
+                <tr>
+                <img  width="150" height="auto" src={hotelT}/>
+                </tr>
+                <br/>
+
+                <tr>
+                <Button size="lg" variant="secondary" onClick={() => choseHyatt()}> Select</Button>       
+                </tr>
+            
+            </div>
+            <div>
+                <tr>
+                <p style={{fontSize:"20px"}}>Hilton - $290</p>
+                </tr>
+                <br/>
+
+                <tr>
+                <img  width="150" height="auto" src={hotelTr}/>
+                </tr>
+                <br/>
+
+                <tr>
+                <Button size="lg" variant="secondary" onClick={() => choseHilton()}> Select</Button>      
+                </tr>
+                
+        
+            </div>
+        {/* </tr> */}
         </div>
 
-        <div>
-            Hyatt
-            <img  width="150" height="auto" src={hotelImg}/>
-            <Button onClick={() => choseHyatt()}> Select</Button>       
-            <p>$2500</p>
-        </div>
-        <div>
-            Hilton 
-            <img  width="150" height="auto" src={hotelImg}/>
-            <Button onClick={() => choseHilton()}> Select</Button>      
-            <p>$2500</p>
-     
-        </div>
+ 
+        <br />
+        <br />
+        <br />
 
+        <div class="container text-center">
         <Link to={{ pathname: "/travelSummary"}}>
-            <Button onClick={createTravelEscrow}>Confirm </Button>
+            <Button  size="lg" variant="outline-dark" style={{justifyContent:'center'}}onClick={createTravelEscrow}>Confirm </Button>
         </Link> 
-        {hotel}
 
+        </div>
 
        
 

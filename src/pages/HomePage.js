@@ -61,16 +61,22 @@ export default function HomePage({choseParis,choseNYC,onChange,value,handleChang
             onClick={requestAccount}
         
         >Connect Wallet</button> */}
-        <br/>
-        <h1>Ensures secure, private, and shared payment for group travel</h1>
         <br />
+        <br />
+
+        <h1>Visite</h1>
+        <h2 style={{fontSize:"20px"}}>Enabling Secure, Private and Shared Payment for Group Travel</h2>
         <br />
         <p>Select Travel Destination</p>
         <br />
         <br />
-        <button><img  width="350" height="auto" src={parisImg} alt="my image" onClick={() => choseParis()} /></button>
+        <div>
+            <button><img  width="270" height="auto" src={parisImg}  onClick={() => choseParis()} /></button>
+            &nbsp;&nbsp;&nbsp;
+            <button><img width="270" height="auto" src={nyImg}   onClick={() => choseNYC()}/></button>
+
+        </div>
        
-        <button><img  width="350" height="auto" src={nyImg} alt="my image"  onClick={() => choseNYC()}/></button>
         <br />
         <br />
         <DateRangePicker onChange={onChange} value={value} />
@@ -78,16 +84,17 @@ export default function HomePage({choseParis,choseNYC,onChange,value,handleChang
         <br />
         <form onSubmit={handleSubmit}>
             <label>
-                Authorized Travelers
-            <input type="text" name="name" onChange={handleChange} />
+                Authorized Travelers  &nbsp;&nbsp;&nbsp;
+                <input type="text" name="name" onChange={handleChange} />
             </label>
             <input type="submit" value="Save" />
         </form>
         <br />
-        <br />
         <Link to={{ pathname: "/confirmSelection"}}>
-            <Button>Confirm Selection</Button>
+            <Button variant="secondary">Confirm Selection</Button>
         </Link> 
+        <br/>
+        <br/>
     </div>
   )
 }
