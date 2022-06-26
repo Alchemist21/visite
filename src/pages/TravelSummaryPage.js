@@ -19,6 +19,7 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo, paymentStatus}) =>
 	const [contract, setContract] = useState(null);
 
 
+
     return (
     <div>Travel Summary
 

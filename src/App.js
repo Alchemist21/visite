@@ -38,7 +38,14 @@ function App() {
   const [hotel, setHotel] = useState('') //hotel selection
   const [paymentStatus, setPaymentStatus] = useState(0);
   const [walletAddress, setWalletAddress] = useState("");
+  
   const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+  console.log("provider: ", provider);
+  const signer = provider.getSigner()
+  console.log("signer: ", signer);
+
+
 
 
   async function requestAccount(){
@@ -80,7 +87,6 @@ function App() {
     if(num == 0){
       setPaymentStatus(0);
     }
-
 
     //payment status = 1 -> one paid 
     if(num == 1){
@@ -150,7 +156,7 @@ function App() {
             <Routes>
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit} contactInfo={contactInfo}/>}/>
                 <Route path='/connectWallet' element={<Metamask/>}/>
-                <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
+                <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel} provider={provider} signer={signer} contactInfo={contactInfo}/>}/>
                 <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus}/>}/>
             </Routes>
         </div>
