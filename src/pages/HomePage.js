@@ -12,13 +12,16 @@ import Button from 'react-bootstrap/Button'
 import ConfirmSelectionPage from './ConfirmSelectionPage';
 import { touchRippleClasses } from '@mui/material';
 
+import '../style.css'
+
 
 export default function HomePage({choseParis,choseNYC,onChange,value,handleChange, handleSubmit}) {
     console.log("choseParis",choseParis)
   return (
     <div>
         <br/>
-        <p>Ensures secure, private, and shared payment for group travel</p>
+        <p className='project-name'>Visite</p>
+        <p className='paragraph-text'>Ensures secure, private, and shared payment for group travel</p>
         <p>Select Travel Destination</p>
         <button><img  width="350" height="auto" src={parisImg} alt="my image" onClick={() => choseParis()} /></button>
         
