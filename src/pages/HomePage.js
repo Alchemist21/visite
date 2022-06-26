@@ -18,16 +18,22 @@ import '../style.css'
 export default function HomePage({choseParis,choseNYC,onChange,value,handleChange, handleSubmit}) {
     console.log("choseParis",choseParis)
   return (
-    <div>
+    <div class="container text-center">
         <br/>
-        <p className='project-name'>Visite</p>
-        <p className='paragraph-text'>Ensures secure, private, and shared payment for group travel</p>
+        <h1>Ensures secure, private, and shared payment for group travel</h1>
+        <br />
+        <br />
         <p>Select Travel Destination</p>
+        <br />
+        <br />
         <button><img  width="350" height="auto" src={parisImg} alt="my image" onClick={() => choseParis()} /></button>
-        
+       
         <button><img  width="350" height="auto" src={nyImg} alt="my image"  onClick={() => choseNYC()}/></button>
+        <br />
+        <br />
         <DateRangePicker onChange={onChange} value={value} />
-
+        <br />
+        <br />
         <form onSubmit={handleSubmit}>
             <label>
                 Authorized Travelers
@@ -35,6 +41,8 @@ export default function HomePage({choseParis,choseNYC,onChange,value,handleChang
             </label>
             <input type="submit" value="Save" />
         </form>
+        <br />
+        <br />
         <Link to={{ pathname: "/confirmSelection"}}>
             <Button>Confirm Selection</Button>
         </Link> 
