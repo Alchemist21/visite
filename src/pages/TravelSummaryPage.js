@@ -44,9 +44,10 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo, paymentStatus, pro
         const travelEscrowWithSigner = travelEscrowContract.connect(signer);
         console.log("4")
         let travellerAddress = await signer.getAddress()
-        console.log("sig: ", )
 
         let hasPaid = await travelEscrowWithSigner.hasTravellerPaid(travellerAddress);
+        console.log("sig: ", hasPaid )
+
         console.log("5")
 
         let hasEveryonePaid = await travelEscrowWithSigner.hasEveryonePaid();
