@@ -92,7 +92,7 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo, paymentStatus, pro
                 )
             } else if (payStatus ===2){
                 return (
-                <NFTGallery></NFTGallery>
+                <NFTGallery provider={provider} signer={signer}></NFTGallery>
                 )
             }
         })()}

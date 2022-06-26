@@ -4,6 +4,8 @@ import  HomePage from './pages/HomePage';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button'
+
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -124,14 +126,14 @@ function App() {
   return (
     <div>
       
-          <BrowserRouter>
+    <BrowserRouter>
       <>
         <Navbar bg="dark" variant="dark">
           <Container>
             <Navbar.Brand >Visite</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/HomePage">Home</Nav.Link>
-              <Nav.Link as={Link} to="/connectWallet">Connect Wallet</Nav.Link>
+              {/* <Nav.Link as={Link} to="/connectWallet">Connect Wallet</Nav.Link> */}
             </Nav>
           </Container>
         </Navbar>
@@ -139,15 +141,19 @@ function App() {
         {(() => {
             if (!walletAddress) {
                 return (
-                  <button className='this-button'
-                  onClick={requestAccount}
+                  <Button  style={{float: 'right'}}  variant="outline-dark" onClick={requestAccount}> Connect Wallet</Button>
+              //     <button className='this-button'
+              //     onClick={requestAccount}
               
-              >Connect Wallet</button>
+              // >Connect Wallet</button>
                 )
             } 
             else{
               return(
-                <p>{walletAddress}</p>
+                <div>
+                  <p style={{float: 'right'}} > My Address: {walletAddress}</p>
+                  <br/>
+                </div>
               )
             }
         })()}
@@ -155,14 +161,12 @@ function App() {
         <div>
             <Routes>
                 <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit} contactInfo={contactInfo}/>}/>
-                <Route path='/connectWallet' element={<Metamask/>}/>
+                {/* <Route path='/connectWallet' element={<Metamask/>}/> */}
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel} provider={provider} signer={signer} contactInfo={contactInfo}/>}/>
                 <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus} provider={provider} signer={signer}/>}/>
             </Routes>
         </div>
         </>
-
-        
 
     </BrowserRouter>
 
