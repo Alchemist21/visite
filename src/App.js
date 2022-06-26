@@ -11,6 +11,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import ConnectWallet from './components/ConnectWallet';
 import { PageOne } from './pages/PageOne';
 import PageTwo from './pages/PageTwo';
+import { ethers } from "ethers";
+
 
 import Metamask from './components/MetaMask';
 
@@ -35,12 +37,35 @@ function App() {
   const [contactInfo, setContactInfo] = useState([]); //authorized traveler
   const [hotel, setHotel] = useState('') //hotel selection
   const [paymentStatus, setPaymentStatus] = useState(0);
+  const [walletAddress, setWalletAddress] = useState("");
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-  const { active, chainId, account } = useWeb3React(); //info about Connected Wallet
+
+  async function requestAccount(){
+    console.log("hey")
+
+    try{
+        const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+        });
+        setWalletAddress(accounts[0]);
+        console.log("acc" ,accounts);
+    }catch(error){
+        console.log("err", error)
+    }
+
+}
+
+  // const accounts = await provider.send("eth_requestAccounts", []);
+
+
+  // const { active, chainId, account } = useWeb3React(); //info about Connected Wallet
+
+
 
   console.log("I can acc: ",contactInfo)
   const handleChange = (event) => { //for auth traveler form 
-    setContactInfo([account, event.target.value]); //add user and authorized friend to 
+     setContactInfo([walletAddress, event.target.value]); //add user and authorized friend to 
   };
 
   const handleSubmit = (event) => { //for auth traveler form 
@@ -91,7 +116,9 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <div>
+      
+          <BrowserRouter>
       <>
         <Navbar bg="dark" variant="dark">
           <Container>
@@ -102,9 +129,26 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
+
+        {(() => {
+            if (!walletAddress) {
+                return (
+                  <button className='this-button'
+                  onClick={requestAccount}
+              
+              >Connect Wallet</button>
+                )
+            } 
+            else{
+              return(
+                <p>{walletAddress}</p>
+              )
+            }
+        })()}
+       
         <div>
             <Routes>
-                <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit}/>}/>
+                <Route path='/HomePage' element={<HomePage choseParis={choseParis} choseNYC={choseNYC} value={value} onChange={onChange} handleChange={handleChange} handleSubmit={handleSubmit} contactInfo={contactInfo}/>}/>
                 <Route path='/connectWallet' element={<Metamask/>}/>
                 <Route path='/confirmSelection' element={<ConfirmSelectionPage location={location} value={value} choseMarriot={choseMarriot} choseHyatt={choseHyatt} choseHilton={choseHilton} hotel={hotel}/>}/>
                 <Route path='/travelSummary' element={<TravelSummaryPage location={location} value={value} hotel={hotel} contactInfo={contactInfo} paymentStatus={paymentStatus}/>}/>
@@ -112,7 +156,13 @@ function App() {
         </div>
         </>
 
+        
+
     </BrowserRouter>
+
+    </div>
+
+    
 
   );
 }

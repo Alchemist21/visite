@@ -11,14 +11,56 @@ import DateRangePicker from '@wojtekmaj/react-daterange-picker';//date time pick
 import Button from 'react-bootstrap/Button'
 import ConfirmSelectionPage from './ConfirmSelectionPage';
 import { touchRippleClasses } from '@mui/material';
+import { ethers } from "ethers";
+import { useState } from 'react';
+
+
+import './App.css';
 
 import '../style.css'
 
 
-export default function HomePage({choseParis,choseNYC,onChange,value,handleChange, handleSubmit}) {
+export default function HomePage({choseParis,choseNYC,onChange,value,handleChange, handleSubmit,contactInfo}) {
+
+    // const [walletAddress, setWalletAddress] = useState("");
+    // const [addrs, setAddrs] = useState([]);
+
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+
+    // async function requestAccount(){
+    //     console.log("hey")
+
+    //     try{
+    //         const accounts = await window.ethereum.request({
+    //             method: "eth_requestAccounts",
+    //         });
+    //         setWalletAddress(accounts[0]);
+    //         setAddrs(walletAddress,contactInfo)
+    //         console.log("acc" ,accounts);
+    //     }catch(error){
+    //         console.log("err", error)
+    //     }
+
+    // }
+    // async function connectWallet() {
+        
+    //       await requestAccount();
+    
+    //       const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //       window.provider = provider;
+        
+    //   }
+    
+    
     console.log("choseParis",choseParis)
   return (
+    
     <div class="container text-center">
+        {/* <button className='this-button'
+            onClick={requestAccount}
+        
+        >Connect Wallet</button> */}
         <br/>
         <h1>Ensures secure, private, and shared payment for group travel</h1>
         <br />
