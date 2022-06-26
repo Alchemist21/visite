@@ -7,6 +7,8 @@ import frame from '../images/frame.png'
 import { NFTIssuerAddress , travelEscrowFactoryAddress} from '../addresses'
 import { abiNFTIssuer, abiTravelEscrowFactory, abiTravelEscrow } from '../abi'
 
+import style from "../style.css"
+
 let  hotelNameRetrieved, hotelAddressRetrieved, dateStartRetrieved, numberOfNightsRetrieved, travellerAddressRetrieved;
 const NFTGallery = ({provider,signer}) => {
     // const retrieveNFT = async () => {
@@ -50,8 +52,12 @@ const NFTGallery = ({provider,signer}) => {
 
   return (
     <div>
-        <p>Display NFT Gallery Here</p>
-        <img  width="350" height="auto" src={frame} />
+        <br/>
+        <br/>
+        <br/>
+
+        <h2 style={{textAlign:'center '}}>Your Booking Confirmation</h2>
+        <img className='center' width="350"  height="auto" src={frame} />
     
 
         

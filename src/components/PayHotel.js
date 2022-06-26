@@ -35,7 +35,8 @@ const PayHotel = ({provider,signer}) => {
 
   return (
     <div>PayHotel
-        <p>Price: $250</p>
+        <p style={{textAlign:'center '}}>Pay for Hotel</p>
+        <p style={{textAlign:'center '}}>Price: 0.0002 MATIC</p>
         <Button onClick={pay}>Pay</Button>
     </div>
   )

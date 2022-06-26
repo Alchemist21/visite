@@ -72,14 +72,16 @@ const TravelSummaryPage = ({location,value,hotel,contactInfo, paymentStatus, pro
 
 
     return (
-    <div>Travel Summary
+    <div>
+        <br/>
+        <br/>
 
-        <div>
-            {location}
-            <div>{value.join(' - ')}</div>
-            {hotel}
-            Authorized Travelers: {contactInfo.join(' , ')}
-        </div>
+        <h1 style={{textAlign:'center '} }>Travel Summary</h1>
+        <h5 style={{textAlign:'center '} }>Location: {location}</h5>
+        <h5 style={{textAlign:'center '} }>Hotel: {hotel}</h5>
+        <h5 style={{textAlign:'center '} }>{"Dates Selected: " + (value[0].getMonth() +1 )+'/'+value[0].getDate() +'/'+ value[0].getFullYear() + ' - ' + (value[1].getMonth() +1) +'/' +value[1].getDate() +'/'+ value[1].getFullYear() }</h5>
+        <h6 style={{textAlign:'center '} }>Coming Along: {contactInfo.join(' , ')}</h6>
+     
 
         {(() => {
             if (payStatus === 0) {

@@ -59,7 +59,7 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
         {/* <tr> */}
             <div>
                 <tr>
-                <p style={{fontSize:"20px"}}>Marriot - $250</p>
+                <p style={{fontSize:"20px"}}>Marriot - 0.0002 MATIC</p>
                 </tr>
                 <br/>
                 <tr>
@@ -75,7 +75,7 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
 
             <div>
                 <tr>
-                <p style={{fontSize:"20px"}}>Hyatt - $270</p>
+                <p style={{fontSize:"20px"}}>Hyatt - 0.0004 MATIC</p>
                 </tr>
                 <br/>
                 <tr>
@@ -90,7 +90,7 @@ const ConfirmSelectionPage = ({location,value,choseMarriot,choseHyatt,choseHilto
             </div>
             <div>
                 <tr>
-                <p style={{fontSize:"20px"}}>Hilton - $290</p>
+                <p style={{fontSize:"20px"}}>Hilton - 0.0006 MATIC</p>
                 </tr>
                 <br/>
 
