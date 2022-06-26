@@ -34,10 +34,13 @@ const PayHotel = ({provider,signer}) => {
     }
 
   return (
-    <div>PayHotel
-        <p style={{textAlign:'center '}}>Pay for Hotel</p>
+    <div class="container text-center">
+        <br/>
+        <br/>
+        <br/>
+        <h2 style={{textAlign:'center '}}>Pay for Your Stay</h2>
         <p style={{textAlign:'center '}}>Price: 0.0002 MATIC</p>
-        <Button onClick={pay}>Pay</Button>
+        <Button size="lg" variant="secondary"  onClick={pay}>Pay</Button>
     </div>
   )
 }

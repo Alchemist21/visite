@@ -153,7 +153,11 @@ function App() {
         {(() => {
             if (!walletAddress) {
                 return (
-                  <Button  style={{float: 'right'}}  variant="outline-dark" onClick={requestAccount}> Connect Wallet</Button>
+                  <div>
+                    <br/>
+                    <Button  style={{float: 'right'}}  variant="outline-dark" onClick={requestAccount}> Connect Wallet</Button>
+                  </div>
+ 
               //     <button className='this-button'
               //     onClick={requestAccount}
               
